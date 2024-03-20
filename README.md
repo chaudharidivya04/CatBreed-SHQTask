@@ -13,4 +13,7 @@
 - Jquery: To display the Modal for Random fact.
 - CSS: To add style for heading, table, Get Random Fact Button
 - Bootstrap: for better style of Table and button
+## API used to get Breed Data
+- To get breed details: 'https://catfact.ninja/breeds'
+- To get the random fact about cat: 'https://catfact.ninja/fact'
 
