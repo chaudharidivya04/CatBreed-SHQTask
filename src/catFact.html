@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="breedApp">
+<head>
+    <title>Cat Breeds</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="catFact.js"></script>
+    <link rel="stylesheet" href="catFact.css">
+</head>
+<body ng-controller="breedController" ng-init="loadBreeds()">
+    <div class="container">
+        <h1>Cat Breed Details</h1>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Origin</th>
+                    <th>Description</th>
+                    <th>Temperament</th>
+                    <th>Life Span</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-if="breeds.length < 0">
+                    <td colspan="5" class="noData">No Data to Display</td>
+                </tr>
+                <tr ng-repeat="breed in breeds.slice(0, maxSize)">
+                    <td>{{ breed.breed }}</td>
+                    <td>{{ breed.coat }}</td>
+                    <td>{{ breed.country }}</td>
+                    <td>{{ breed.origin }}</td>
+                    <td>{{ breed.pattern }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <label>Show:</label>
+            <select ng-model="maxSize" ng-options="option for option in options" ng-change="setItemsPerPage(maxSize)"></select>
+        </div>
+        <div class="buttonRandomFact"><button class="btn btn-primary" ng-click="loadRandomFact()">Get Random Cat Fact</button> </div>
+        <div id="randomFactModal" style="display:none;" title="Random Cat Fact">
+            <p>{{ randomFact }}</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+h1 {
+    text-align: center;
+}
+
+th { 
+    background-color: #ADD8E6;
+}
+
+.noData {
+    text-align: center;
+}
+
+.buttonRandomFact {
+    text-align: center;
+    height: 40vh;    
+}
